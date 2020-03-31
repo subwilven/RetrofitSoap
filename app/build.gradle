@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -39,6 +39,15 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.7.2'
     implementation 'com.squareup.retrofit2:converter-simplexml:2.7.2'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
+
+
+    implementation 'com.github.Tickaroo.tikxml:annotation:0.8.15'
+    implementation 'com.github.Tickaroo.tikxml:core:0.8.15'
+    kapt 'com.github.Tickaroo.tikxml:processor-common:0.8.15'
+    kapt 'com.github.Tickaroo.tikxml:processor:0.8.15'
+    implementation 'com.github.Tickaroo.tikxml:retrofit-converter:0.8.15'
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+    implementation 'com.google.guava:guava:27.0.1-android'
 
     implementation 'joda-time:joda-time:2.3'
     implementation 'org.joda:joda-convert:1.6'

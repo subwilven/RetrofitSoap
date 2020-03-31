@@ -1,4 +1,6 @@
-package com.islam.retrofitsoap.webservice.request;
+package com.islam.retrofitsoap.webservice.request.simplexml;
+
+import com.islam.retrofitsoap.webservice.request.tikxml.RequestBody;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Namespace;

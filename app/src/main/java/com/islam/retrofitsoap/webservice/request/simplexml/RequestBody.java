@@ -1,4 +1,4 @@
-package com.islam.retrofitsoap.webservice.request;
+package com.islam.retrofitsoap.webservice.request.simplexml;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;

@@ -1,4 +1,4 @@
-package com.islam.retrofitsoap.webservice.response.response;
+package com.islam.retrofitsoap.webservice.response.simplexml;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Namespace;

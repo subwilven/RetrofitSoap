@@ -1,7 +1,7 @@
 package com.islam.retrofitsoap.webservice;
 
-import com.islam.retrofitsoap.webservice.request.RequestEnvelope;
-import com.islam.retrofitsoap.webservice.response.response.ResponseEnvelope;
+import com.islam.retrofitsoap.webservice.request.tikxml.RequestEnvelope;
+import com.islam.retrofitsoap.webservice.response.tikxmk.ResponseEnvelope;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

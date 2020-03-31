@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.islam.retrofitsoap.webservice.WeatherInterfaceApi
-import com.islam.retrofitsoap.webservice.request.RequestBody
-import com.islam.retrofitsoap.webservice.request.RequestEnvelope
-import com.islam.retrofitsoap.webservice.request.RequestModel
-import com.islam.retrofitsoap.webservice.response.response.ResponseEnvelope
+import com.islam.retrofitsoap.webservice.request.tikxml.RequestBody
+import com.islam.retrofitsoap.webservice.request.tikxml.RequestEnvelope
+import com.islam.retrofitsoap.webservice.request.tikxml.RequestModel
+import com.islam.retrofitsoap.webservice.response.tikxmk.ResponseEnvelope
+import com.tickaroo.tikxml.retrofit.TikXmlConverterFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -32,21 +33,25 @@ class MainActivity : AppCompatActivity() {
         httpClient.addInterceptor(logging)
         val retrofit = Retrofit.Builder()
             .baseUrl("http://www.webxml.com.cn/WebServices/")
-            .addConverterFactory(
-                SimpleXmlConverterFactory.createNonStrict(
-                    Persister(AnnotationStrategy())
-                )).client(httpClient.build())
+//            .addConverterFactory(
+//                SimpleXmlConverterFactory.createNonStrict(
+//                    Persister(AnnotationStrategy()) ))
+                   .client(httpClient.build())
+            .addConverterFactory(TikXmlConverterFactory.create())
             .build()
 
-        val requestEnvelop = RequestEnvelope()
-        val requestBody = RequestBody()
-        val requestModel = RequestModel()
+        val requestEnvelop =
+            RequestEnvelope()
+        val requestBody =
+            RequestBody()
+        val requestModel =
+            RequestModel()
         requestModel.theCityName = "上海"
         requestModel.cityNameAttribute = "http://WebXml.com.cn/"
         requestBody.getWeatherbyCityName = requestModel
         requestEnvelop.body = requestBody
         retrofit.create(WeatherInterfaceApi::class.java).getWeatherbyCityName(requestEnvelop)
-            .enqueue(object : Callback<ResponseEnvelope?> {
+            .enqueue(object : Callback<com.islam.retrofitsoap.webservice.response.tikxmk.ResponseEnvelope?> {
                 override fun onResponse(
                     call: Call<ResponseEnvelope?>,
                     response: Response<ResponseEnvelope?>
